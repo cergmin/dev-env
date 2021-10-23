@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -8,7 +9,7 @@ const IS_DEV = true;
 
 module.exports = {
   mode: IS_DEV ? 'development' : 'production',
-  entry: path.resolve(__dirname, './src/index.js'),
+  entry: path.resolve(__dirname, './src/index.tsx'),
   output: {
     filename: 'index.js',
     publicPath: './',
@@ -16,8 +17,11 @@ module.exports = {
     clean: !IS_DEV,
   },
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
     modules: [path.resolve(__dirname, './node_modules')],
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
   },
   optimization: {
     minimize: !IS_DEV,
@@ -37,6 +41,15 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: /\.(js|jsx|ts|tsx)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+        ],
+      },
       {
         test: /\.css$/,
         use: [
