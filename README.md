@@ -3,6 +3,7 @@ Configured template for new projects with:
 
 - webpack, babel, typescript, react
 - prettier, eslint, stylelint
+- husky, lint-staged
 
 ## Commands
 **`npm install`** — install all dependencies  

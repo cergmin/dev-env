@@ -1,8 +1,8 @@
 {
   "name": "dev-env",
   "version": "1.0.0",
-  "description": "Ready-made webpack config",
-  "main": "index.js",
+  "description": "Configured template for new projects",
+  "main": "src/index.tsx",
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,14 +10,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cergmin/webpack-template.git"
+    "url": "git+https://github.com/cergmin/dev-env.git"
   },
   "author": "cergmin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cergmin/webpack-template/issues"
+    "url": "https://github.com/cergmin/dev-env/issues"
   },
-  "homepage": "https://github.com/cergmin/webpack-template#readme",
+  "homepage": "https://github.com/cergmin/dev-env#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.(js|jsx|ts|tsx)": [
+      "npm run lint",
+      "git add"
+    ]
+  },
   "dependencies": {
     "clsx": "^1.1.1",
     "react": "^17.0.2",
@@ -46,6 +57,8 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.4",
     "mini-css-extract-plugin": "^2.3.0",
     "prettier": "^2.4.1",
     "stylelint": "^13.13.1",
