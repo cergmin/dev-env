@@ -1,6 +1,12 @@
-# Webpack template
-Ready-made webpack config.
+# Development environment
+Configured template for new projects with:
+
+- webpack, babel, typescript, react
+- prettier, eslint, stylelint
 
 ## Commands
-`npm i` — установить зависимости  
-`npm run build` — запустить сборку
+**`npm install`** — install all dependencies  
+
+**`npm run build`** — build the project  
+
+**`npm run lint`** — fix code with prettier, eslint and stylelint  
